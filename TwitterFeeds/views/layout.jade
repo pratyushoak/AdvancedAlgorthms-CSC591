@@ -1,0 +1,15 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+    ul#listDisp
+    block content
+    script(src='/javascripts/jquery.min.js')
+    script(src='/javascripts/bootstrap.min.js')
+    block scripts
+    // bind to the data fields defined in mixin
+    script(src="/socket.io/socket.io.js")
+    // stream the actual data from the data stream emitter
+    script(src="/javascripts/client.socket.io.js")
