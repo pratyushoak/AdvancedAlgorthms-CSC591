@@ -1,0 +1,64 @@
+doctype html
+html
+  head
+    style.
+        table{
+          width:100%;  /* Set table to expand to full screen width*/
+        }
+        table, th, td {
+          border: 1px solid black; /* Set table properties: border to solid*/
+          border-collapse: collapse;
+        }
+        th{
+        /* Text alignment and font for text in table heading*/
+        text-align:center;   
+        font-family: Arial;
+        }
+        /* Set table padding and rows alignment*/
+        td {
+          padding: 5px;
+          text-align: left;
+          }
+        /* Heading to display page heading in baby blue(cyan) color
+        */
+        h1 {
+          background-color: cyan;;
+          border-style:solid;
+          border-color: black;
+          text-align:center;
+        }
+        /* Display the result in blue
+        */
+        #table-scroll {
+          height:500px;
+          overflow:auto;  
+        }     
+  body
+    //heading for the page
+    h1 MULTI-CLIENT CHAT ROOM
+    //diplays the love v/s hate winner
+    p#introduction Enter User name:
+      input#uname(type='text')
+    button(id='join',type='button') Join Chat
+    //table has 2 columns to display the messages and online users
+    #table-scroll
+      table#chatTable(width='100%',height='500')
+        tr(height='50')
+         th Message
+         th Online
+        tr
+         //width of the columns set to 50 percent of the page
+         td(width='80%')
+           ul#msgDisp
+         td(width='20%')
+           ul#userDisp
+    input#inputMsg(type='text')
+    button(id='send-msg',type='button') Send
+    block content
+    script(src='/javascripts/jquery.min.js')
+    script(src='/javascripts/bootstrap.min.js')
+    block scripts
+    // bind to the data fields defined in mixin
+    script(src="/socket.io/socket.io.js")
+    // stream the actual data from the data stream emitter
+    script(src="/javascripts/client.socket.io.js")
